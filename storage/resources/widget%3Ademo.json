@@ -1,0 +1,191 @@
+{
+    "identity": {
+        "id": "widget:demo",
+        "type": "Widget",
+        "created_at": "2026-06-25T08:21:51+00:00"
+    },
+    "schema": {
+        "version": "1.0.0",
+        "definition": {
+            "required": [
+                "shape",
+                "sides",
+                "side_length",
+                "fill",
+                "rotation_degrees",
+                "display_shape"
+            ],
+            "properties": {
+                "shape": {
+                    "type": "string",
+                    "enum": [
+                        "diamond",
+                        "pentagon"
+                    ]
+                },
+                "sides": {
+                    "type": "integer",
+                    "min": 3
+                },
+                "side_length": {
+                    "type": "number",
+                    "min": 1
+                },
+                "fill": {
+                    "type": "string"
+                },
+                "rotation_degrees": {
+                    "type": "number"
+                },
+                "display_shape": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "protocol": {
+        "version": "1.0.0",
+        "commands": {
+            "reshape": {
+                "stage_property": "shape",
+                "from": "diamond",
+                "to": "pentagon",
+                "requires": [
+                    "approved"
+                ],
+                "changes": {
+                    "sides": {
+                        "op": "set",
+                        "value": 5
+                    },
+                    "side_length": {
+                        "op": "set",
+                        "value": 64
+                    },
+                    "fill": {
+                        "op": "set",
+                        "value": "green"
+                    },
+                    "rotation_degrees": {
+                        "op": "set",
+                        "value": 12
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "green-pentagon"
+                    }
+                }
+            },
+            "reset": {
+                "stage_property": "shape",
+                "from": [
+                    "diamond",
+                    "pentagon"
+                ],
+                "to": "diamond",
+                "requires": [],
+                "changes": {
+                    "sides": {
+                        "op": "set",
+                        "value": 4
+                    },
+                    "side_length": {
+                        "op": "set",
+                        "value": 48
+                    },
+                    "fill": {
+                        "op": "set",
+                        "value": "blue"
+                    },
+                    "rotation_degrees": {
+                        "op": "set",
+                        "value": 45
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "blue-diamond"
+                    }
+                }
+            }
+        }
+    },
+    "state": {
+        "shape": "diamond",
+        "sides": 4,
+        "side_length": 48,
+        "fill": "blue",
+        "rotation_degrees": 45,
+        "display_shape": "blue-diamond"
+    },
+    "history": [
+        {
+            "command": "reset",
+            "timestamp": "2026-06-25T08:21:51+00:00",
+            "input": [],
+            "before": {
+                "shape": "diamond",
+                "sides": 4,
+                "side_length": 48,
+                "fill": "blue",
+                "rotation_degrees": 45,
+                "display_shape": "blue-diamond"
+            },
+            "after": {
+                "shape": "diamond",
+                "sides": 4,
+                "side_length": 48,
+                "fill": "blue",
+                "rotation_degrees": 45,
+                "display_shape": "blue-diamond"
+            },
+            "hash_after": "445f6d6ef16594c32ad4fb586961ff563e40126e40a1b3f65e416901115a0825"
+        },
+        {
+            "command": "reshape",
+            "timestamp": "2026-06-25T08:31:07+00:00",
+            "input": {
+                "approved": true
+            },
+            "before": {
+                "shape": "diamond",
+                "sides": 4,
+                "side_length": 48,
+                "fill": "blue",
+                "rotation_degrees": 45,
+                "display_shape": "blue-diamond"
+            },
+            "after": {
+                "shape": "pentagon",
+                "sides": 5,
+                "side_length": 64,
+                "fill": "green",
+                "rotation_degrees": 12,
+                "display_shape": "green-pentagon"
+            },
+            "hash_after": "7b9eee29480ab1b828e9b42a3eb69be49db49f6118841dec64bb095cbab2c093"
+        },
+        {
+            "command": "reset",
+            "timestamp": "2026-06-25T08:31:16+00:00",
+            "input": [],
+            "before": {
+                "shape": "pentagon",
+                "sides": 5,
+                "side_length": 64,
+                "fill": "green",
+                "rotation_degrees": 12,
+                "display_shape": "green-pentagon"
+            },
+            "after": {
+                "shape": "diamond",
+                "sides": 4,
+                "side_length": 48,
+                "fill": "blue",
+                "rotation_degrees": 45,
+                "display_shape": "blue-diamond"
+            },
+            "hash_after": "f86d25af680e549801d6e80510784b0e10f560ae1e212bf036d7383f595d7244"
+        }
+    ],
+    "hash": "7af1a32955f4dcc90196380a6ee19489315adf3a6245a991db88b74516d96224"
+}

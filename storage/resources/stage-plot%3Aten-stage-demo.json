@@ -1,0 +1,208 @@
+{
+    "identity": {
+        "id": "stage-plot:ten-stage-demo",
+        "type": "StagePlot",
+        "created_at": "2026-06-26T04:41:08+00:00"
+    },
+    "schema": {
+        "version": "1.0.0",
+        "definition": {
+            "required": [
+                "sequence_mode",
+                "display_shape",
+                "stage_count",
+                "stages",
+                "plotted_stages",
+                "run_status",
+                "active_stage",
+                "elapsed_display",
+                "stream_revision",
+                "last_input_at"
+            ],
+            "properties": {
+                "sequence_mode": {
+                    "type": "string"
+                },
+                "display_shape": {
+                    "type": "string"
+                },
+                "stage_count": {
+                    "type": "integer",
+                    "min": 10
+                },
+                "stages": {
+                    "type": "array"
+                },
+                "plotted_stages": {
+                    "type": "array"
+                },
+                "run_status": {
+                    "type": "string"
+                },
+                "active_stage": {
+                    "type": "integer",
+                    "min": 0
+                },
+                "elapsed_display": {
+                    "type": "string"
+                },
+                "stream_revision": {
+                    "type": "integer",
+                    "min": 0
+                },
+                "last_input_at": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "protocol": {
+        "version": "1.0.0",
+        "commands": {
+            "configure": {
+                "stage_property": "sequence_mode",
+                "from": "streaming",
+                "to": "streaming",
+                "changes": {
+                    "stages": {
+                        "op": "input",
+                        "source": "stages"
+                    },
+                    "plotted_stages": {
+                        "op": "set",
+                        "value": []
+                    },
+                    "run_status": {
+                        "op": "set",
+                        "value": "idle"
+                    },
+                    "active_stage": {
+                        "op": "set",
+                        "value": 0
+                    },
+                    "elapsed_display": {
+                        "op": "set",
+                        "value": "00:00"
+                    },
+                    "stream_revision": {
+                        "op": "add",
+                        "value": 1
+                    },
+                    "last_input_at": {
+                        "op": "timestamp"
+                    }
+                }
+            },
+            "playback": {
+                "stage_property": "sequence_mode",
+                "from": "streaming",
+                "to": "streaming",
+                "changes": {
+                    "plotted_stages": {
+                        "op": "input",
+                        "source": "plotted_stages"
+                    },
+                    "run_status": {
+                        "op": "input",
+                        "source": "run_status",
+                        "type": "string"
+                    },
+                    "active_stage": {
+                        "op": "input",
+                        "source": "active_stage",
+                        "type": "integer",
+                        "min": 0,
+                        "default": 0
+                    },
+                    "elapsed_display": {
+                        "op": "input",
+                        "source": "elapsed_display",
+                        "type": "string"
+                    },
+                    "stream_revision": {
+                        "op": "add",
+                        "value": 1
+                    },
+                    "last_input_at": {
+                        "op": "timestamp"
+                    }
+                }
+            }
+        }
+    },
+    "state": {
+        "sequence_mode": "streaming",
+        "display_shape": "cartesian-stage-path",
+        "stage_count": 10,
+        "stages": [
+            {
+                "stage": 1,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 2,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 3,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 4,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 5,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 6,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 7,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 8,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 9,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            },
+            {
+                "stage": 10,
+                "timer": "00:00",
+                "x": null,
+                "y": null
+            }
+        ],
+        "plotted_stages": [],
+        "run_status": "idle",
+        "active_stage": 0,
+        "elapsed_display": "00:00",
+        "stream_revision": 0,
+        "last_input_at": "2026-06-26T04:41:08+00:00"
+    },
+    "history": [],
+    "hash": "e4cf7695c6cc5fb6c565b2f4eaae5f4b7f580b0f592bdbe1d5342a920548e424"
+}

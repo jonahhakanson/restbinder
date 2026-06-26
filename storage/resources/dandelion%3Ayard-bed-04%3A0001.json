@@ -1,0 +1,359 @@
+{
+    "identity": {
+        "id": "dandelion:yard-bed-04:0001",
+        "type": "Dandelion",
+        "created_at": "2026-06-25T08:30:59+00:00"
+    },
+    "schema": {
+        "version": "1.0.0",
+        "definition": {
+            "required": [
+                "life_stage",
+                "root_depth_mm",
+                "leaf_count",
+                "stem_height_mm",
+                "flower_state",
+                "seed_head_state",
+                "seed_count_estimate",
+                "color",
+                "display_shape"
+            ],
+            "properties": {
+                "life_stage": {
+                    "type": "string",
+                    "enum": [
+                        "seed",
+                        "germinating",
+                        "sprout",
+                        "vegetative",
+                        "flowering",
+                        "seeding",
+                        "spent"
+                    ]
+                },
+                "root_depth_mm": {
+                    "type": "number",
+                    "min": 0
+                },
+                "leaf_count": {
+                    "type": "integer",
+                    "min": 0
+                },
+                "stem_height_mm": {
+                    "type": "number",
+                    "min": 0
+                },
+                "flower_state": {
+                    "type": "string"
+                },
+                "seed_head_state": {
+                    "type": "string"
+                },
+                "seed_count_estimate": {
+                    "type": "integer",
+                    "min": 0
+                },
+                "color": {
+                    "type": "string"
+                },
+                "display_shape": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "protocol": {
+        "version": "1.0.0",
+        "commands": {
+            "germinate": {
+                "from": "seed",
+                "to": "germinating",
+                "requires": [
+                    "moisture",
+                    "temperature_above_minimum"
+                ],
+                "changes": {
+                    "root_depth_mm": {
+                        "op": "add",
+                        "value": 2
+                    },
+                    "seed_head_state": {
+                        "op": "set",
+                        "value": "opened"
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "split-seed-with-root"
+                    }
+                }
+            },
+            "sprout": {
+                "from": "germinating",
+                "to": "sprout",
+                "requires": [
+                    "root_depth_mm >= 2"
+                ],
+                "changes": {
+                    "leaf_count": {
+                        "op": "add",
+                        "value": 2
+                    },
+                    "color": {
+                        "op": "set",
+                        "value": "pale green"
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "two-leaf-sprout"
+                    }
+                }
+            },
+            "growLeaves": {
+                "from": "sprout",
+                "to": "vegetative",
+                "requires": [
+                    "sunlight",
+                    "water"
+                ],
+                "changes": {
+                    "leaf_count": {
+                        "op": "add",
+                        "value": 8
+                    },
+                    "root_depth_mm": {
+                        "op": "add",
+                        "value": 40
+                    },
+                    "color": {
+                        "op": "set",
+                        "value": "green"
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "low-leaf-rosette"
+                    }
+                }
+            },
+            "flower": {
+                "from": "vegetative",
+                "to": "flowering",
+                "requires": [
+                    "maturity",
+                    "sufficient_light"
+                ],
+                "changes": {
+                    "stem_height_mm": {
+                        "op": "add",
+                        "value": 120
+                    },
+                    "flower_state": {
+                        "op": "set",
+                        "value": "yellow_flower"
+                    },
+                    "color": {
+                        "op": "set",
+                        "value": "yellow"
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "yellow-flowering-dandelion"
+                    }
+                }
+            },
+            "seed": {
+                "from": "flowering",
+                "to": "seeding",
+                "requires": [
+                    "flower_maturation"
+                ],
+                "changes": {
+                    "flower_state": {
+                        "op": "set",
+                        "value": "spent"
+                    },
+                    "seed_head_state": {
+                        "op": "set",
+                        "value": "white_pappus_seed_head"
+                    },
+                    "seed_count_estimate": {
+                        "op": "set",
+                        "value": 150
+                    },
+                    "color": {
+                        "op": "set",
+                        "value": "white"
+                    },
+                    "display_shape": {
+                        "op": "set",
+                        "value": "white-puff-seed-head"
+                    }
+                }
+            }
+        }
+    },
+    "state": {
+        "life_stage": "seeding",
+        "root_depth_mm": 42,
+        "leaf_count": 10,
+        "stem_height_mm": 120,
+        "flower_state": "spent",
+        "seed_head_state": "white_pappus_seed_head",
+        "seed_count_estimate": 150,
+        "color": "white",
+        "display_shape": "white-puff-seed-head"
+    },
+    "history": [
+        {
+            "command": "germinate",
+            "timestamp": "2026-06-25T08:31:22+00:00",
+            "input": {
+                "moisture": true,
+                "temperature_above_minimum": true
+            },
+            "before": {
+                "life_stage": "seed",
+                "root_depth_mm": 0,
+                "leaf_count": 0,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "dormant",
+                "seed_count_estimate": 1,
+                "color": "brown",
+                "display_shape": "small-oval-seed"
+            },
+            "after": {
+                "life_stage": "germinating",
+                "root_depth_mm": 2,
+                "leaf_count": 0,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "brown",
+                "display_shape": "split-seed-with-root"
+            },
+            "hash_after": "ed136ef2bb0e2dd2c6341d5499eaa9afe0d8360c0b645e5a7406b84bda0ed71e"
+        },
+        {
+            "command": "sprout",
+            "timestamp": "2026-06-25T08:31:35+00:00",
+            "input": [],
+            "before": {
+                "life_stage": "germinating",
+                "root_depth_mm": 2,
+                "leaf_count": 0,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "brown",
+                "display_shape": "split-seed-with-root"
+            },
+            "after": {
+                "life_stage": "sprout",
+                "root_depth_mm": 2,
+                "leaf_count": 2,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "pale green",
+                "display_shape": "two-leaf-sprout"
+            },
+            "hash_after": "a271de7b051b91a046c09cd2cf0660307487f9b5a7bb3c14dd6b5627fc1b7869"
+        },
+        {
+            "command": "growLeaves",
+            "timestamp": "2026-06-25T08:31:51+00:00",
+            "input": {
+                "sunlight": true,
+                "water": true
+            },
+            "before": {
+                "life_stage": "sprout",
+                "root_depth_mm": 2,
+                "leaf_count": 2,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "pale green",
+                "display_shape": "two-leaf-sprout"
+            },
+            "after": {
+                "life_stage": "vegetative",
+                "root_depth_mm": 42,
+                "leaf_count": 10,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "green",
+                "display_shape": "low-leaf-rosette"
+            },
+            "hash_after": "22c618a4ffc26069834f7aa9863771e64860bbc0cea42bb497f71df306e1b0d8"
+        },
+        {
+            "command": "flower",
+            "timestamp": "2026-06-25T08:32:16+00:00",
+            "input": {
+                "maturity": true,
+                "sufficient_light": true
+            },
+            "before": {
+                "life_stage": "vegetative",
+                "root_depth_mm": 42,
+                "leaf_count": 10,
+                "stem_height_mm": 0,
+                "flower_state": "none",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "green",
+                "display_shape": "low-leaf-rosette"
+            },
+            "after": {
+                "life_stage": "flowering",
+                "root_depth_mm": 42,
+                "leaf_count": 10,
+                "stem_height_mm": 120,
+                "flower_state": "yellow_flower",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "yellow",
+                "display_shape": "yellow-flowering-dandelion"
+            },
+            "hash_after": "c1931be948582e631c20b4f7b97e3218e0551c6d5586eae57c30567ec09424f0"
+        },
+        {
+            "command": "seed",
+            "timestamp": "2026-06-25T08:32:20+00:00",
+            "input": {
+                "flower_maturation": true
+            },
+            "before": {
+                "life_stage": "flowering",
+                "root_depth_mm": 42,
+                "leaf_count": 10,
+                "stem_height_mm": 120,
+                "flower_state": "yellow_flower",
+                "seed_head_state": "opened",
+                "seed_count_estimate": 1,
+                "color": "yellow",
+                "display_shape": "yellow-flowering-dandelion"
+            },
+            "after": {
+                "life_stage": "seeding",
+                "root_depth_mm": 42,
+                "leaf_count": 10,
+                "stem_height_mm": 120,
+                "flower_state": "spent",
+                "seed_head_state": "white_pappus_seed_head",
+                "seed_count_estimate": 150,
+                "color": "white",
+                "display_shape": "white-puff-seed-head"
+            },
+            "hash_after": "d72dd1822fa946c5a4f62f596b6d7d37c8feae4ecb5183147d561bc1df1f157e"
+        }
+    ],
+    "hash": "6c2191e5e1c186ff578a61f8be6a01fb63f7e745a3b409b323f10775aa1ae39d"
+}
