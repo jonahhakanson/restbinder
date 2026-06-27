@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="hsl(224 74% 78%)" />
+      <stop offset="52%" stop-color="hsl(242 68% 60%)" />
+      <stop offset="100%" stop-color="hsl(266 58% 38%)" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(230 56% 44%)" />
+      <stop offset="100%" stop-color="hsl(242 52% 22%)" />
+    </linearGradient>
+    <filter id="blurGlow">
+      <feGaussianBlur stdDeviation="22" />
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#sky)" />
+  <circle cx="296" cy="186" r="56" fill="hsl(28 92% 82% / 0.98)" />
+  <circle cx="278" cy="198" r="112" fill="hsl(28 98% 88% / 0.44)" filter="url(#blurGlow)" />
+  <path d="M0 278C76 238 106 250 154 220S246 164 314 196 422 282 512 242V512H0Z" fill="hsl(96 34% 22% / 0.92)" />
+  <path d="M0 316C88 286 136 300 270 258S402 284 512 268V512H0Z" fill="hsl(126 28% 18% / 0.94)" />
+  <path d="M0 360C70 330 138 346 212 320S352 286 512 328V512H0Z" fill="url(#water)" />
+  <path d="M0 398C98 372 152 388 232 370S398 360 512 390" fill="none" stroke="hsl(230 72% 84% / 0.32)" stroke-width="10" stroke-linecap="round" />
+  <rect x="0" y="0" width="512" height="512" fill="url(#grain)" opacity="0"/>
+</svg>

@@ -17,6 +17,14 @@
         <section class="rb-grid">
             <div class="rb-demo-block">
                 <div class="rb-demo-intro">
+                    <p class="rb-kicker">Surface Demo</p>
+                    <h2>RestBinder Surface</h2>
+                    <p>Open a database-backed content grid with scope switching, square cards, origin metadata, upvotes, polling, and two-axis loading.</p>
+                    <p><a href="/restbinder/demo/grid/">Launch the RestBinder Surface demo.</a></p>
+                </div>
+            </div>
+            <div class="rb-demo-block">
+                <div class="rb-demo-intro">
                     <p class="rb-kicker">Protocol Demo</p>
                     <h2>Seed to sprout</h2>
                     <p>Step the dandelion through its first two accepted mutations and inspect the persisted state history beside it.</p>

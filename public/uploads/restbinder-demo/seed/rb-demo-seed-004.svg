@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="hsl(87 65% 41%)" />
+      <stop offset="100%" stop-color="hsl(182 63% 65%)" />
+    </linearGradient>
+    <linearGradient id="overlay" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="hsla(308 88% 64% / 0.92)" />
+      <stop offset="100%" stop-color="hsla(87 72% 53% / 0.76)" />
+    </linearGradient>
+    <pattern id="mesh" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M0 0H64V64" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1"/>
+      <path d="M0 0L64 64M64 0L0 64" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="0.9"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)" />
+  <rect width="512" height="512" fill="url(#mesh)" />
+  <circle cx="213" cy="165" r="109" fill="url(#overlay)" />
+  <rect x="113" y="103" width="161" height="22" rx="11" fill="hsla(308 96% 88% / 0.9)" />
+  <rect x="117" y="133" width="195" height="171" rx="28" fill="hsla(182 94% 79% / 0.28)" />
+  <path d="M0 400C96 348 188 472 280 430S430 280 512 318V512H0Z" fill="hsla(308 92% 92% / 0.18)" />
+</svg>
