@@ -2,7 +2,7 @@
     "identity": {
         "id": "dandelion:seed-sprout-demo",
         "type": "Dandelion",
-        "created_at": "2026-06-25T08:46:26+00:00"
+        "created_at": "2026-07-07T16:36:29+00:00"
     },
     "schema": {
         "version": "1.0.0",
@@ -203,5 +203,5 @@
         "display_shape": "small-oval-seed"
     },
     "history": [],
-    "hash": "c814935a1a30eb57736c440a7626bb2609f2c79f5ffa247d27c8fb15c2b99151"
+    "hash": "d058165b6baf887cb2ea2ab021de98646ef9fbd3375a4f28dd0017ee88dd7b1c"
 }
