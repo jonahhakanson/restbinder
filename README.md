@@ -2,7 +2,7 @@
 
 RestBinder is a small PHP + vanilla JavaScript framework for building state-aware web resources. A RestBinder Resource is a stable, schema-driven data identity whose properties change through protocol-driven mutations.
 
-The framework is intentionally minimal and suitable for a fresh Codex project reset. It contains:
+The framework is intentionally minimal. It contains:
 
 - PHP resource core
 - JSON schema-like validation
